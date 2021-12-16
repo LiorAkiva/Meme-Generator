@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MemeGen</title>
+    <link rel="icon"  href="favicon/android-chrome-512x512.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+    <link rel="manifest" href="favicon/site.webmanifest">
+    <link rel="stylesheet" href="css/main.css" />
+
+</head>
+<body onload="init()">
+    <div class="main-page"></div>
+    <header class="header">
+        <div class="header-nav">
+            <img class="logo" src="img/LOGO.png" />
+            <ul class="main-nav">
+                <li class="button nav-gallery" onclick="openGallery()">Gallery</li>
+                <li class="button nav-memes" onclick="openSavedMemes()">Memes</li>
+                <li class="button nav-about" onclick="openAbout()">About</li>
+                <!-- <li class="nav-language">lang</li> -->
+            </ul>
+            <!-- <button class="main-menu" onclick="openMenu()"></button> -->
+        </div>
+    </header>
+
+    <div class="main-box">
+        <!-- gallery box -->
+        <div class="gallery-box">
+            <header class="gallery-header">
+
+            </header>
+            <div class="gallery-imgs"></div>
+        </div>
+
+        <!-- canvas box -->
+        <div class="meme-box hidden">
+            <div class="canvas-box">
+                <canvas id="main-canvas" width="400" height="400"></canvas>
+            </div>
+            
+        </div>
+    </div>
+
+
+    
+    <script src="js/util.service.js"></script>
+    <script src="js/memegen.service.js"></script>
+    <script src="js/memegen.controller.js"></script>
+    <script src="js/i18n.service.js"></script>
+</body>
+</html>
