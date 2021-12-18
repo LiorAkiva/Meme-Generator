@@ -69,7 +69,7 @@ var gImgs = [
     {id:15, url:'img/15.jpg', keywords:['movie', 'celebrity', 'famous', 'tv']},
     {id:16, url:'img/16.jpg', keywords:['movie', 'celebrity','famous', 'tv']},
     {id:17, url:'img/17.jpg', keywords:['politics', 'famous']},
-    {id:18, url:'img/18.jpg', keywords:['animation', 'movie']}
+    {id:18, url:'img/18.jpg', keywords:['animation', 'movie']},
 ];
 
 // returns all images currently held in variable

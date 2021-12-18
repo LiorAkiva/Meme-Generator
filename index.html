@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="css/main.css" />
 
 </head>
-<body onload="init()">
+<body onload="init()" class="main-screen"> 
     <div class="main-page"></div>
     <header class="header">
         <div class="header-nav">
@@ -28,38 +28,38 @@
         </div>
     </header>
 
-    <div class="main-box">
-        <!-- gallery box -->
-        <div class="gallery-box">
+    <main class="main-box">
+        
+        <section class="gallery-box">
             <header class="gallery-header">
-
+                <h1>Search</h1>
             </header>
-            <div class="gallery-imgs"></div>
-        </div>
+            <section class="gallery-imgs"></section>
+        </section>
 
-        <!-- canvas box -->
-        <div class="meme-box hidden">
-            <div class="canvas-box">
+        
+        <section class="meme-box hidden">
+            <section class="canvas-box">
                 <canvas id="main-canvas" width="400" height="400"></canvas>
                 <div class="main-editor">
                     <input type="text" class="meme-line" name="meme-line" oninput="editMemeLine(this)"> 
                     <div class="main-control">
-                    <button class="edit-button" onclick="onToggleLines()">toggle</button>
+                    <button class="edit-button" onclick="onToggleLines()"><img src="img/edit-buttons/toggle.png"/></button>
                     <button class="edit-button" onclick="onMoveLines('up')">up</button>
                     <button class="edit-button" onclick="onMoveLines('down')">down</button>
-                    <button class="edit-button" onclick="onAddLine()">add</button>
-                    <button class="edit-button" onclick="onDeleteLine()">delete</button>
+                    <button class="edit-button" onclick="onAddLine()"><img src="img/edit-buttons/add.png"/></button>
+                    <button class="edit-button" onclick="onDeleteLine()"><img src="img/edit-buttons/delete.png"/></button>
                     </div>
     
                     <div class="edit-text">
-                    <button class="edit-button" onclick="onChangeFontSize('+')">grow</button>
-                    <button class="edit-button" onclick="onChangeFontSize('-')">shrink</button>
-                    <button class="edit-button" onclick="onChangeAlign('left')">left</button>
-                    <button class="edit-button" onclick="onChangeAlign('center')">center</button>
-                    <button class="edit-button" onclick="onChangeAlign('right')">right</button>
+                    <button class="edit-button" onclick="onChangeFontSize('+')"><img src="img/edit-buttons/increase.png"/></button>
+                    <button class="edit-button" onclick="onChangeFontSize('-')"><img src="img/edit-buttons/decrease.png"/></button>
+                    <button class="edit-button" onclick="onChangeAlign('left')"><img src="img/edit-buttons/left.png"/></button>
+                    <button class="edit-button" onclick="onChangeAlign('center')"><img src="img/edit-buttons/center.png"/></button>
+                    <button class="edit-button" onclick="onChangeAlign('right')"><img src="img/edit-buttons/right.png"/></button>
                     <button class="edit-button">font</button>
                     <button class="edit-button">stroke</button>
-                    <button class="edit-button">color<input type="color" onchange="onSelectColor(this)" value="#cc2e2e" /></button>
+                    <button class="edit-button"><input type="color" onchange="onSelectColor(this)" /></button>
                     </div> 
                     
                     <!-- <div class="sticker-box">
@@ -67,14 +67,15 @@
                     </div> -->
             </div>
 
-            </div>
+        </section>
 
-    </div>
+    </main>
 
 
     
     <script src="js/util.service.js"></script>
     <script src="js/meme.service.js"></script>
+    <script src="js/gallery.controller.js"></script>
     <script src="js/meme.controller.js"></script>
     <script src="js/i18n.service.js"></script>
 </body>
