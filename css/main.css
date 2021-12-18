@@ -5,10 +5,11 @@
 body{
     background-color: #22252c;
     background-size: cover;
+    margin:0;
 }
 
 .header{
-    background-image: linear-gradient(90deg, #0f9ab4, #30bb72);
+    background-image: linear-gradient(90deg, #159fb8, #34bd74);
     margin: 15px 0 20px;
     border-radius: 3em;
 }
@@ -26,6 +27,10 @@ body{
     margin-left: 35px;
     height: 25px;
     background-repeat: no-repeat;
+}
+
+.logo:hover{
+    cursor: pointer;
 }
 
 .main-nav{
@@ -60,8 +65,11 @@ body{
 }
 
 .main-box{
-    background-color: white;
+    background-color: #22252c;
     height: 700px;
+    max-width: 1060px;
+    margin: auto;
+    
 }
 
 .gallery-imgs{
@@ -87,9 +95,35 @@ body{
 }
 
 .meme-box{
-    background-color: lightslategrey;
+    background-color: #22252c;
+    height: 550px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
 }
 
 .hidden{
     display:none
 }
+
+.canvas-box{
+    padding: 7px;
+    border-radius: 30px;
+    background-color: rgba(255, 255, 255, 0.116);
+    justify-content: space-between;
+    max-width: 1060px;
+}
+.main-editor{
+    background-color: #383b42;
+    width: 500px;
+    height: 520px;
+    padding: 15px 30px;
+    float: right;
+    
+}
+
+.edit-button:hover{
+    cursor: pointer;
+}
+
