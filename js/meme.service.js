@@ -1,24 +1,26 @@
 'use strict';
 
 var gMeme;
+var gMemesDATAs;
 
 var gKeyWords ={
-    'funny': 0,
-    'cat': 0,
-    'baby': 0,
-    'happy': 0,
-    'animal': 0,
-    'child': 0,
-    'politics': 0,
-    'movie': 0,
-    'sports': 0,
-    'dog': 0,
-    'celebrity': 0,
-    'famous': 0,
-    'cute': 0,
-    'animation': 0,
-    'tv': 0,
+    funny: 0,
+    cat: 0,
+    baby: 0,
+    happy: 0,
+    animal: 0,
+    child: 0,
+    politics: 0,
+    movie: 0,
+    sports: 0,
+    dog: 0,
+    celebrity: 0,
+    famous: 0,
+    cute: 0,
+    animation: 0,
+    tv: 0,
 };
+
 
 function resetMemeValues(){
      gMeme = {
@@ -34,7 +36,6 @@ function resetMemeValues(){
         stroke: 'black',
         size: 40,
         pos: {x:200, y:55},
-        selectedPos: {x:200, y:40}
     },
     {
         txt: 'Your text',
@@ -45,7 +46,6 @@ function resetMemeValues(){
         stroke: 'black',
         size: 40,
         pos: {x:200, y:360},
-        selectedPos: {x:200, y:390}
     }]
     }
     return gMeme;
@@ -78,8 +78,8 @@ function getImgs(){
 }
 
 // set the global meme to the selected index(user's choice)
-function setMeme(imgIdx){
-    gMeme.selectedImg = imgIdx;
+function setMeme(imgId){
+    gMeme.selectedImg = imgId;
 }
 
 // finds the right meme by index and return src
@@ -91,6 +91,11 @@ function getMemeImg(){
 
 function getMeme(){
     return gMeme;
+}
+
+function switchLine(lineIdx) {
+    if (lineIdx || lineIdx === 0) gMeme.selectedLine = lineIdx;
+    else gMeme.selectedLine = (gMeme.selectedLine === (gMeme.lines.length - 1)) ? 0 : gMeme.selectedLine + 1;
 }
 
 // returns value of selected line 
@@ -139,6 +144,12 @@ function createNewLine(canvasW, canvasH) {
     return newLine;
 }
 
+// updateLineProp(key,val)
+function updateLineProp(key,val){
+    const selectedLine = gMeme.lines[gMeme.selectedLine]
+    selectedLine[key] = val
+}
+
 // sets chosen color on texts
 function setColor(color){
     const idx = gMeme.selectedLine;
@@ -156,6 +167,7 @@ function changeFontSize(size){
     gMeme.lines[idx].size += size * 2 ;
 }
 
+
 // toggle between existing lines
 function toggleLines() {
     if (!gMeme.lines.length) return;
@@ -168,6 +180,7 @@ function toggleLines() {
     document.querySelector('[name=meme-line]').value = gMeme.lines[gMeme.selectedLine].txt;
 }
 
+// move lines up and down
 function moveLine(key) {
     var idx = gMeme.selectedLine;
     key *= 6;
@@ -179,6 +192,7 @@ function moveLine(key) {
 
 // deletes selected lines
 function deleteLine() {
+    if(!gMeme.lines.length) return
     let idx = gMeme.selectedLine;
     if (idx >= 0) {
         gMeme.lines.splice(idx, 1);
@@ -189,7 +203,7 @@ function deleteLine() {
         gMeme.selectedLine = -1;
     }
     gMeme.selectedLine = -1;
-    gMeme.selectedLineIdx = gMeme.lines.length - 1;
+    gMeme.selectedLine = gMeme.lines.length - 1;
 }
 
 // changes alignment of texts
@@ -201,4 +215,9 @@ function changeAlign(key, canvasW){
     if (key === 'left') line.pos.x = 10;
     else if (key === 'right') line.pos.x = 390;
     else line.pos.x = canvasW / 2;
+}
+
+function saveMeme(MemeData) {
+    gMemesDATAs.push(MemeData);
+    saveToStorage(MEMES, gMemesDATAs);
 }

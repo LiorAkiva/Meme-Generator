@@ -72,6 +72,10 @@ body{
     
 }
 
+.gallery-header{
+    color:transparent
+}
+
 .gallery-box{
     overflow-y: scroll;
     overflow-x: hidden;
@@ -114,25 +118,28 @@ body{
     justify-content: center;
     align-items: center;
     height: 400px;
+    border-radius: 10px;
 }
 .img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    border-radius: px;
+    border-radius: 10px;
 
 }
 
 .img:hover{
     cursor: pointer;
+    transform: scale(1.1);
 }
 
 .meme-box{
     background-color: #22252c;
     height: 550px;
-    margin: auto;
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
 }
 
 .hidden{
@@ -140,30 +147,43 @@ body{
 }
 
 .canvas-box{
-    padding: 7px;
-    border-radius: 30px;
-    background-color: lightgrey;
-    align-items: center;
-    width: 1300px;
+    height: 550px;
+    display: flex;
+    justify-content: space-around;
+
 }
 
+.canvas-box>*{
+    max-width: 500px;
+ }
+
 #main-canvas{
-    margin-top: 50px;
-    margin-left: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     border: 15px solid #393c42;
-    border-radius: 10px;
+    border-radius: 25px;
+    margin: 50px;
+
 }
 
 .main-editor{
-    background-color: #393c42;
-    width: 400px;
-    height: 430px;
-    padding: 15px;
-    margin: 50px 10px 0 250px;
-    display: inline-block;
-    position: absolute;
-    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px 30px; /* pp: 24px 40px */
+    margin: 6px; /*pp:12px*/
+    background-color: rgba(255, 255, 255, 0.082);
+    border-radius: 25px;
+    height: 450px;
+    margin-top: 50px;
+    margin-left: 60px;
 }
+
+.main-editor>*{
+    margin: 10px 0;
+ }
+
 
 .edit-button:hover{
     cursor: pointer;
@@ -176,10 +196,15 @@ body{
     padding: 15px 0;
     border-radius: 3em;
     width: 100%;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     text-align: center;
     border: 5px outset;
 }
+
+.meme-line input[type="text"]:focus-visible{
+    padding: 0;
+    outline: none;
+ }
 
 .edit-button {
     border-radius: 10px;
@@ -190,4 +215,44 @@ body{
     font-size: 21px;
     vertical-align: top;
     margin: 5px;
+    background-color: #393c42;
+}
+
+.main-control{
+    align-items: center; 
+    justify-items: stretch;
+    margin:10px;
+    
+}
+
+.edit-text{
+    display: grid;
+   gap:18px;
+   grid-template-columns: repeat(5,0.1fr);
+   grid-template-rows: repeat(2,0.1fr);
+   align-items: center; 
+   justify-items: stretch;
+   background-color: #19a59f;
+   border-radius: 10px;
+   padding: 11px 13px;
+   height: 160px;
+}
+
+.share-buttons{
+    display: flex;
+    border-radius: 10px;
+    padding: 0px;
+    border: none;
+    font-size: 21px;
+    vertical-align: top;
+    margin: 5px;
+    background-size:cover;
+}
+
+.share-buttons:hover{
+    cursor: pointer;
+}
+
+.fill{
+    background-color: #19a59f;
 }

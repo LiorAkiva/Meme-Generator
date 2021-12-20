@@ -23,11 +23,16 @@ function renderGallery(){
 
 
 // sets clicked photo on current selected image
-function clickedImg(imgIdx){
-    setMeme(imgIdx);
-    openCanvas();
+function clickedImg(imgId){
+    // reset meme
+    setMeme(imgId);
     gCanvas = document.getElementById('main-canvas');
     gCtx = gCanvas.getContext('2d');
-    // addEvListeners();
+    addEvListeners();
     renderMeme();
+    openCanvas();
+}
+
+function openSavedMemes(){
+    document.querySelector('.saved').classList.remove('hidden');
 }

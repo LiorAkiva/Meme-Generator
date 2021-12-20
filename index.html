@@ -20,7 +20,7 @@
             <img class="logo" src="img/LOGO.png" onclick="openGallery()"/>
             <ul class="main-nav">
                 <li class="button nav-gallery" onclick="openGallery()">Gallery</li>
-                <li class="button nav-memes" onclick="openSavedMemes()">Memes</li>
+                <!-- <li class="button nav-memes saved-memes" onclick="openSavedMemes()">Memes</li> -->
                 <li class="button nav-about" onclick="openAbout()">About</li>
                 <!-- <li class="nav-language">lang</li> -->
             </ul>
@@ -39,14 +39,16 @@
 
         
         <section class="meme-box hidden">
-            <section class="canvas-box">
+            <div class="canvas-box">
+                <div>
                 <canvas id="main-canvas" width="400" height="400"></canvas>
+                </div>
                 <div class="main-editor">
-                    <input type="text" class="meme-line" name="meme-line" oninput="editMemeLine(this)"> 
+                    <input type="text" class="meme-line" name="meme-line" oninput="editMemeLine(this.value)"/> 
                     <div class="main-control">
                     <button class="edit-button" onclick="onToggleLines()"><img src="img/edit-buttons/toggle.png"/></button>
-                    <button class="edit-button" onclick="onMoveLines('up')">up</button>
-                    <button class="edit-button" onclick="onMoveLines('down')">down</button>
+                    <button class="edit-button" onclick="onMoveLines('up')"><img src="img/edit-buttons/up.png"/></button>
+                    <button class="edit-button" onclick="onMoveLines('down')"><img src="img/edit-buttons/down.png"/></button>
                     <button class="edit-button" onclick="onAddLine()"><img src="img/edit-buttons/add.png"/></button>
                     <button class="edit-button" onclick="onDeleteLine()"><img src="img/edit-buttons/delete.png"/></button>
                     </div>
@@ -57,16 +59,27 @@
                     <button class="edit-button" onclick="onChangeAlign('left')"><img src="img/edit-buttons/left.png"/></button>
                     <button class="edit-button" onclick="onChangeAlign('center')"><img src="img/edit-buttons/center.png"/></button>
                     <button class="edit-button" onclick="onChangeAlign('right')"><img src="img/edit-buttons/right.png"/></button>
-                    <button class="edit-button">font</button>
-                    <button class="edit-button">stroke</button>
-                    <button class="edit-button"><input type="color" onchange="onSelectColor(this)" /></button>
-                    </div> 
+                    <!-- <button class="edit-button">font</button>
+                    <button class="edit-button">stroke</button> -->
+                    <button class="edit-button fill"><input type="color" onchange="onSelectColor(this.value)" /></button>
+                    <!-- <div class="edit-text">
+                        
+                    </div> -->
                     
                     <!-- <div class="sticker-box">
                         STICKERS
                     </div> -->
+                </div>
+                <div class="share-buttons">
+                    <button class="share-buttons" onclick="onShareMeme(this)"><img src="img/edit-buttons/share.png"/></button>
+                        <!-- <button class="share-buttons" onclick="onSaveMeme()">Save</button> -->
+                        <button class="share-buttons" onclick="onDownloadMeme(this)"><img src="img/edit-buttons/download.png"/></button>
+                    </div>
+                </div> 
             </div>
-
+            <section class="saved hidden">
+                <div class="saved-memes"></div>
+             </section>
         </section>
 
     </main>
